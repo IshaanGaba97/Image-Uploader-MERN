@@ -10,9 +10,12 @@ const cors = require('cors');
 require('./db/connect');
 const verifyToken = require('./middlewares/auth');
 const Image = require('./models/image');
+const dotenv = require('dotenv');
 
+dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
+
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -57,7 +60,7 @@ app.post('/login', async (req, res) => {
             return res.status(400).json({ message: 'Invalid credentials' });
         }
 
-        const token = jwt.sign({ userId: user._id }, 'your_secret_key', { expiresIn: '24h' });
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET_KEY, { expiresIn: '24h' });
 
         res.status(200).json({ token, userId: user._id });
     } catch (error) {
