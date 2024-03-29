@@ -1,4 +1,4 @@
-# Image Uploader App 🚀
+# Image Uploader App (MERN) 🚀
 
 This is an Image Uploader web application built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It provides functionalities for user authentication, authorization, and image uploading for specific users using technologies like multer, JWT, and MERN stack components.
 
